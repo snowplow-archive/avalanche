@@ -1,0 +1,14 @@
+sudo: required
+language: bash
+
+before_script:
+  - sudo adduser ubuntu --disabled-password --gecos ""
+  - sudo passwd -d ubuntu
+  - sudo mkdir -p /home/ubuntu/snowplow/src
+  - sudo mkdir -p /home/ubuntu/snowplow/scripts
+  - sudo cp -rf ./src /home/ubuntu/snowplow
+  - sudo cp -rf ./scripts /home/ubuntu/snowplow
+  - sudo ./scripts/1_provision.sh
+
+script:
+  - exit 0
